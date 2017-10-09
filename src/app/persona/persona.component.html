@@ -1,0 +1,41 @@
+<p>
+  persona works!
+</p>
+
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+          <label>Nombre</label>
+          <input type="text"  [(ngModel)]="persona.nombre" name="persona.nombre" class="form-control">
+      </div>
+      <div class="form-group">
+          <label for="">Telefono</label>
+          <input type="text"  [(ngModel)]="persona.telefono" name="persona.telefono" class="form-control">
+      </div>
+      <div class="form-group">
+          <button *ngIf="edit==false" class="btn btn-success" (click)="guardar()">Enviar</button>
+          <button *ngIf="edit" class="btn btn-warning" (click)="modificar()">Modificar</button>
+          <button *ngIf="edit" class="btn btn-default" (click)="edit=false">Cancelar</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Opción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let jo of personas; let i = index">
+              <td>{{jo.nombre}}</td>
+              <td>{{jo.telefono}}</td>
+              <td><button class="btn btn-danger btn-sm" (click)="eliminar(i)">x</button><button class="btn btn-primary btn-sm" (click)="editar(i)">e</button></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</form>
