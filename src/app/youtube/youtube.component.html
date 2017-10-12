@@ -1,0 +1,27 @@
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#" style="color:#fff">Buscar</a>
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0">
+        <input name="valores" [(ngModel)]="valores" class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" >
+        <button (click)="buscar()" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+
+
+<div class="row">
+  <div class="card col-md-4 col-sm-4 col-lg-4"  *ngFor="let item of videos">
+    <iframe class="card-img-top" width="320" height="180" [src]="item.id.videoId | url:'https://www.youtube.com/embed/'" frameborder="0" allowfullscreen></iframe>
+    <div class="card-body">
+      <h4 class="card-title">{{item.snippet.title}}</h4>
+      <p class="card-text">{{item.snippet.description}}</p>
+    </div>
+  </div>
+</div>
